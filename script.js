@@ -4,28 +4,6 @@
 
 // 1. Wait for DOM to Load
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // -------------------------------------------------
-    // LOADING SCREEN ANIMATION
-    // -------------------------------------------------
-    const loader = document.querySelector(".loader");
-    const progressFill = document.querySelector(".progress-fill");
-    
-    // Simulate loading
-    gsap.to(progressFill, {
-        width: "100%",
-        duration: 2,
-        ease: "power2.inOut",
-        onComplete: () => {
-            gsap.to(loader, {
-                y: "-100%",
-                duration: 1,
-                ease: "power4.inOut",
-                delay: 0.2
-            });
-        }
-    });
-
 
     // -------------------------------------------------
     // LENIS SMOOTH SCROLL SETUP
