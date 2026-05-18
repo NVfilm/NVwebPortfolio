@@ -1,339 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+/* --- 1. RESET & VARIABLES --- */
+:root {
+    --bg-color: #050505;
+    --text-white: #ffffff;
+    --text-gray: #a1a1a1;
+    --accent: #d4af37; /* Luxury Gold/Bronze fallback */
+    --glass: rgba(255, 255, 255, 0.05);
+    --font-head: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+    --font-nav: 'Montserrat', sans-serif;
+    --ease: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-html{
-  scroll-behavior:smooth;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* Hide default cursor for custom one */
 }
 
-body{
-  background:#050505;
-  color:white;
-  font-family:'Poppins',sans-serif;
-  overflow-x:hidden;
+html.lenis {
+    height: auto;
 }
 
-.hero{
-  position:relative;
-  width:100%;
-  height:100vh;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  padding:0 8%;
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
 }
 
-.hero-video{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  top:0;
-  left:0;
-  transform:scale(1.1);
+body {
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
-.hero-overlay{
-  position:absolute;
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  background:
-  linear-gradient(
-    to right,
-    rgba(0,0,0,0.92),
-    rgba(0,0,0,0.65),
-    rgba(0,0,0,0.35)
-  );
+/* Noise Overlay */
+.grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-.noise{
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-  opacity:0.18;
-  z-index:1;
+/* --- 2. CUSTOM CURSOR --- */
+.cursor, .cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
 }
 
-.navbar{
-  position:fixed;
-  top:25px;
-  left:50%;
-  transform:translateX(-50%);
-  width:92%;
-  padding:20px 35px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:1000;
-
-  background:rgba(255,255,255,0.04);
-
-  border:1px solid rgba(255,255,255,0.08);
-
-  backdrop-filter:blur(20px);
-
-  border-radius:25px;
-
-  box-shadow:
-  0 10px 40px rgba(255,255,255,0.04);
+.cursor {
+    width: 8px;
+    height: 8px;
+    background: white;
 }
 
-.logo{
-  font-size:1.7rem;
-  font-family:'Playfair Display',serif;
-  letter-spacing:1px;
-}
-
-.nav-links{
-  display:flex;
-  gap:35px;
-}
-
-.nav-links a{
-  color:#d8d8d8;
-  text-decoration:none;
-  font-size:0.95rem;
-  position:relative;
-  transition:0.4s;
-}
-
-.nav-links a::after{
-  content:'';
-  position:absolute;
-  width:0%;
-  height:1px;
-  background:white;
-  left:0;
-  bottom:-8px;
-  transition:0.4s;
-}
-
-.nav-links a:hover::after{
-  width:100%;
-}
-
-.nav-links a:hover{
-  color:white;
-}
-
-.nav-cta{
-  padding:14px 26px;
-  border-radius:50px;
-  text-decoration:none;
-  color:white;
-
-  border:1px solid rgba(255,255,255,0.15);
-
-  background:
-  linear-gradient(
-    135deg,
-    rgba(255,255,255,0.08),
-    rgba(255,255,255,0.02)
-  );
-
-  transition:0.5s;
-}
-
-.nav-cta:hover{
-  transform:translateY(-4px);
-  box-shadow:
-  0 10px 30px rgba(255,255,255,0.15);
-}
-
-.hero-content{
-  position:relative;
-  z-index:5;
-  max-width:850px;
-}
-
-.hero-mini{
-  display:inline-block;
-  padding:10px 20px;
-
-  border:1px solid rgba(255,255,255,0.12);
-
-  border-radius:40px;
-
-  background:rgba(255,255,255,0.04);
-
-  margin-bottom:25px;
-
-  color:#cfcfcf;
-}
-
-.hero-content h1{
-  font-size:6.5rem;
-  line-height:1;
-  font-family:'Playfair Display',serif;
-  font-weight:700;
-
-  letter-spacing:-3px;
-
-  margin-bottom:30px;
-
-  text-shadow:
-  0 10px 40px rgba(255,255,255,0.15);
-}
-
-.hero-content p{
-  max-width:650px;
-  font-size:1.15rem;
-  line-height:1.9;
-  color:#cfcfcf;
-
-  margin-bottom:40px;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:25px;
-}
-
-.primary-btn{
-  padding:18px 38px;
-
-  border-radius:60px;
-
-  text-decoration:none;
-
-  background:white;
-
-  color:black;
-
-  font-weight:600;
-
-  transition:0.5s;
-
-  box-shadow:
-  0 10px 40px rgba(255,255,255,0.2);
-}
-
-.primary-btn:hover{
-  transform:translateY(-6px) scale(1.03);
-}
-
-.secondary-btn{
-  padding:18px 38px;
-
-  border-radius:60px;
-
-  text-decoration:none;
-
-  color:white;
-
-  border:1px solid rgba(255,255,255,0.12);
-
-  background:
-  linear-gradient(
-    135deg,
-    rgba(255,255,255,0.06),
-    rgba(255,255,255,0.02)
-  );
-
-  backdrop-filter:blur(10px);
-
-  transition:0.5s;
-}
-
-.secondary-btn:hover{
-  transform:translateY(-6px);
-
-  background:
-  linear-gradient(
-    135deg,
-    rgba(255,255,255,0.12),
-    rgba(255,255,255,0.04)
-  );
-}
-
-.hero-gradient{
-  position:absolute;
-  width:700px;
-  height:700px;
-
-  background:
-  radial-gradient(
-    rgba(255,255,255,0.16),
-    transparent 70%
-  );
-
-  right:-200px;
-  top:-100px;
-
-  filter:blur(80px);
-
-  z-index:1;
-}
-
-@media(max-width:992px){
-
-  .hero-content h1{
-    font-size:4rem;
-  }
-
-  .nav-links{
-    display:none;
-  }
-
-  .hero-buttons{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-}
-
-@media(max-width:600px){
-
-  .hero{
-    padding:0 6%;
-  }
-
-  .hero-content h1{
-    font-size:3rem;
-    line-height:1.1;
-  }
-
-  .hero-content p{
-    font-size:1rem;
-  }
-
-  .navbar{
-    padding:16px 20px;
-  }
-
-  .logo{
-    font-size:1.2rem;
-  }
-  .cursor-glow{
-
-  position:fixed;
-
-  width:300px;
-  height:300px;
-
-  border-radius:50%;
-
-  background:
-  radial-gradient(
-    rgba(255,255,255,0.14),
-    transparent 70%
-  );
-
-  pointer-events:none;
-
-  transform:translate(-50%,-50%);
-
-  z-index:999;
-
-  filter:blur(40px);
-
-}
-
-}
+.cursor-follow
