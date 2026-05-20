@@ -304,3 +304,51 @@ counters.forEach(counter => {
     updateCounter();
 
 });
+/* WHATSAPP BOOKING FORM */
+
+document
+.getElementById("whatsappForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const name =
+    document.getElementById("name").value;
+
+    const business =
+    document.getElementById("business").value;
+
+    const phone =
+    document.getElementById("phone").value;
+
+    const website =
+    document.getElementById("website").value;
+
+    const budget =
+    document.getElementById("budget").value;
+
+    const message =
+    document.getElementById("message").value;
+
+    const whatsappMessage =
+`🔥 NEW WEBSITE BOOKING 🔥
+
+👤 Name: ${name}
+
+🏢 Business: ${business}
+
+📞 Phone: ${phone}
+
+🌐 Website Type: ${website}
+
+💰 Budget: ${budget}
+
+📝 Project Details:
+${message}`;
+
+    const url =
+`https://wa.me/918796493504?text=${encodeURIComponent(whatsappMessage)}`;
+
+    window.open(url, "_blank");
+
+});
