@@ -352,3 +352,9 @@ ${message}`;
     window.open(url, "_blank");
 
 });
+<Image
+  src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop"
+  alt="Gym"
+  width={500}
+  height={500}
+/>
