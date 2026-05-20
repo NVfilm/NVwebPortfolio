@@ -1,48 +1,73 @@
+<!-- =========================
+FILE: index.html
+========================= -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>NVservicehub | Luxury Web Agency</title>
 
-  <link rel="stylesheet" href="css/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  />
+  <!-- Remix Icon -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+
 </head>
 
 <body>
 
+  <!-- CURSOR -->
+
+  <div class="cursor"></div>
+
   <!-- LOADER -->
 
   <div class="loader">
-    <div class="loader-logo">NVservicehub</div>
+
+    <h1>NVservicehub</h1>
+
   </div>
-
-  <!-- CURSOR GLOW -->
-
-  <div class="cursor-glow"></div>
 
   <!-- NAVBAR -->
 
   <header class="navbar">
 
-    <div class="logo">NVservicehub</div>
+    <div class="logo">
+      NVservicehub
+    </div>
 
     <nav>
 
       <a href="#home">Home</a>
+
       <a href="#portfolio">Portfolio</a>
+
       <a href="#about">About</a>
-      <a href="#why">Why Us</a>
-      <a href="#stats">Growth</a>
+
+      <a href="#growth">Growth</a>
+
       <a href="#contact">Contact</a>
 
     </nav>
+
+    <a href="#contact" class="nav-btn">
+      Book Demo
+    </a>
 
   </header>
 
@@ -51,30 +76,72 @@
   <section class="hero" id="home">
 
     <video autoplay muted loop playsinline class="hero-video">
-      <source src="https://cdn.coverr.co/videos/coverr-aerial-view-of-city-at-night-1561392038345?download=1080p" type="video/mp4">
+
+      <source
+        src="https://cdn.coverr.co/videos/coverr-aerial-view-of-city-at-night-1561392038345?download=1080p"
+        type="video/mp4">
+
     </video>
 
-    <div class="overlay"></div>
+    <div class="hero-overlay"></div>
 
     <div class="hero-content">
 
-      <h1>NVservicehub</h1>
+      <p class="hero-tag">
+        PREMIUM DIGITAL EXPERIENCE
+      </p>
 
-      <p>
-        Luxury Websites For Serious Businesses
+      <h1>
+        Luxury Websites <br>
+        For Serious Businesses
+      </h1>
+
+      <p class="hero-desc">
+
+        Cinematic websites designed to make your business look premium,
+        attract more customers and dominate online.
+
       </p>
 
       <div class="hero-buttons">
 
-        <a href="#portfolio" class="btn primary">
+        <a href="#portfolio" class="btn white">
           View Portfolio
         </a>
 
-        <a href="#contact" class="btn secondary">
-          Book Demo
+        <a href="#contact" class="btn glass">
+          Start Project
         </a>
 
       </div>
+
+    </div>
+
+    <div class="scroll-down">
+
+      Scroll
+
+    </div>
+
+  </section>
+
+  <!-- TRUST -->
+
+  <section class="trust">
+
+    <div class="trust-track">
+
+      <span>50+ Websites Delivered</span>
+
+      <span>Luxury UI/UX</span>
+
+      <span>Business Growth</span>
+
+      <span>Premium Animations</span>
+
+      <span>Lead Generation</span>
+
+      <span>Mobile Responsive</span>
 
     </div>
 
@@ -84,199 +151,83 @@
 
   <section class="portfolio" id="portfolio">
 
-    <h2 class="section-title">Premium Portfolio</h2>
+    <div class="section-heading">
 
-    <!-- BASIC -->
+      <p>OUR WORK</p>
 
-    <div class="category">
+      <h2>Premium Portfolio</h2>
 
-      <h3>Basic Websites</h3>
+    </div>
 
-      <div class="portfolio-grid">
+    <div class="portfolio-grid">
 
-        <!-- CARD -->
+      <!-- CARD -->
 
-        <div class="project-card">
+      <div class="project-card">
 
-          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop">
 
-          <div class="card-content">
+        <div class="project-overlay">
 
-            <h4>Fitness Gym</h4>
+          <h3>Gym Website</h3>
 
-            <a href="https://nv-fitnessgym.vercel.app/" target="_blank">
-              Live Visit
-            </a>
-
-          </div>
-
-        </div>
-
-        <div class="project-card">
-
-          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop" alt="">
-
-          <div class="card-content">
-
-            <h4>Office Wings</h4>
-
-            <a href="https://officewings.vercel.app/" target="_blank">
-              Live Visit
-            </a>
-
-          </div>
-
-        </div>
-
-        <div class="project-card">
-
-          <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop" alt="">
-
-          <div class="card-content">
-
-            <h4>Film Studio</h4>
-
-            <a href="https://nv-filmstudio.vercel.app/" target="_blank">
-              Live Visit
-            </a>
-
-          </div>
-
-        </div>
-
-        <div class="project-card">
-
-          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop" alt="">
-
-          <div class="card-content">
-
-            <h4>Gym Fitness</h4>
-
-            <a href="https://nvgymfitness.vercel.app/" target="_blank">
-              Live Visit
-            </a>
-
-          </div>
+          <a href="https://nv-fitnessgym.vercel.app/" target="_blank">
+            Live Visit
+          </a>
 
         </div>
 
       </div>
 
-    </div>
+      <!-- CARD -->
 
-    <!-- STANDARD -->
+      <div class="project-card">
 
-    <div class="category">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1600&auto=format&fit=crop">
 
-      <h3>Standard Websites</h3>
+        <div class="project-overlay">
 
-      <div class="portfolio-grid">
+          <h3>Office Website</h3>
 
-        <div class="project-card">
-
-          <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=1200&auto=format&fit=crop" alt="">
-
-          <div class="card-content">
-
-            <h4>PG Hostel</h4>
-
-            <a href="https://pg-topaz-two.vercel.app/" target="_blank">
-              Live Visit
-            </a>
-
-          </div>
-
-        </div>
-
-        <div class="project-card">
-
-          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop" alt="">
-
-          <div class="card-content">
-
-            <h4>Dentist Clinic</h4>
-
-            <a href="https://dentist-olive-rho.vercel.app/" target="_blank">
-              Live Visit
-            </a>
-
-          </div>
-
-        </div>
-
-        <div class="project-card">
-
-          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop" alt="">
-
-          <div class="card-content">
-
-            <h4>Property Website</h4>
-
-            <a href="https://nv-property.vercel.app/" target="_blank">
-              Live Visit
-            </a>
-
-          </div>
-
-        </div>
-
-        <div class="project-card">
-
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop" alt="">
-
-          <div class="card-content">
-
-            <h4>Wedding Invitation</h4>
-
-            <a href="https://wedding-invitation-umber-rho.vercel.app/" target="_blank">
-              Live Visit
-            </a>
-
-          </div>
+          <a href="https://officewings.vercel.app/" target="_blank">
+            Live Visit
+          </a>
 
         </div>
 
       </div>
 
-    </div>
+      <!-- CARD -->
 
-    <!-- LUXURY -->
+      <div class="project-card">
 
-    <div class="category">
+        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1600&auto=format&fit=crop">
 
-      <h3>Luxury Websites</h3>
+        <div class="project-overlay">
 
-      <div class="portfolio-grid">
+          <h3>Film Studio</h3>
 
-        <div class="project-card">
-
-          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop" alt="">
-
-          <div class="card-content">
-
-            <h4>Luxury Property</h4>
-
-            <a href="https://nvluxuryproperty.vercel.app/" target="_blank">
-              Live Visit
-            </a>
-
-          </div>
+          <a href="https://nv-filmstudio.vercel.app/" target="_blank">
+            Live Visit
+          </a>
 
         </div>
 
-        <div class="project-card">
+      </div>
 
-          <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=1200&auto=format&fit=crop" alt="">
+      <!-- CARD -->
 
-          <div class="card-content">
+      <div class="project-card">
 
-            <h4>Luxury Pet Groom</h4>
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1600&auto=format&fit=crop">
 
-            <a href="https://v0-luxury-petgroom-website-48fs.vercel.app/" target="_blank">
-              Live Visit
-            </a>
+        <div class="project-overlay">
 
-          </div>
+          <h3>Luxury Property</h3>
+
+          <a href="https://nvluxuryproperty.vercel.app/" target="_blank">
+            Live Visit
+          </a>
 
         </div>
 
@@ -292,21 +243,68 @@
 
     <div class="about-left">
 
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="">
+      <p>ABOUT US</p>
+
+      <h2>
+        We Create Websites <br>
+        That Feel Expensive.
+      </h2>
 
     </div>
 
     <div class="about-right">
 
-      <h2>About NVservicehub</h2>
-
       <p>
-        We create cinematic premium websites that help businesses look luxury, gain trust and generate more leads online.
+
+        NVservicehub builds luxury digital experiences with cinematic animations,
+        smooth interactions and modern premium UI design.
+
       </p>
 
       <p>
-        Every project is built with smooth animations, modern UI/UX and mobile responsiveness.
+
+        Every website is crafted to increase trust,
+        improve branding and generate more customers.
+
       </p>
+
+    </div>
+
+  </section>
+
+  <!-- GROWTH -->
+
+  <section class="growth" id="growth">
+
+    <div class="growth-box">
+
+      <h2>50+</h2>
+
+      <p>Websites</p>
+
+    </div>
+
+    <div class="growth-box">
+
+      <h2>35+</h2>
+
+      <p>Happy Clients</p>
+
+    </div>
+
+    <div class="growth-box">
+
+      <h2>15+</h2>
+
+      <p>Luxury Projects</p>
+
+    </div>
+
+    <div class="growth-box">
+
+      <h2>180%</h2>
+
+      <p>Business Growth</p>
 
     </div>
 
@@ -314,79 +312,49 @@
 
   <!-- WHY US -->
 
-  <section class="why-us" id="why">
+  <section class="why">
 
-    <h2 class="section-title">Why Choose Us</h2>
+    <div class="section-heading">
+
+      <p>WHY US</p>
+
+      <h2>Why Businesses Choose Us</h2>
+
+    </div>
 
     <div class="why-grid">
 
       <div class="why-card">
-        <i class="fa-solid fa-gem"></i>
+
+        <i class="ri-vip-crown-2-line"></i>
+
         <h3>Luxury Design</h3>
+
       </div>
 
       <div class="why-card">
-        <i class="fa-solid fa-bolt"></i>
+
+        <i class="ri-flashlight-line"></i>
+
         <h3>Fast Delivery</h3>
+
       </div>
 
       <div class="why-card">
-        <i class="fa-solid fa-chart-line"></i>
-        <h3>Lead Generation</h3>
-      </div>
 
-      <div class="why-card">
-        <i class="fa-solid fa-mobile-screen-button"></i>
-        <h3>Responsive</h3>
-      </div>
+        <i class="ri-line-chart-line"></i>
 
-      <div class="why-card">
-        <i class="fa-solid fa-headset"></i>
-        <h3>Premium Support</h3>
-      </div>
-
-      <div class="why-card">
-        <i class="fa-solid fa-arrow-trend-up"></i>
         <h3>Business Growth</h3>
+
       </div>
 
-    </div>
+      <div class="why-card">
 
-  </section>
+        <i class="ri-smartphone-line"></i>
 
-  <!-- STATS -->
+        <h3>Mobile Responsive</h3>
 
-  <section class="stats" id="stats">
-
-    <div class="stat-box">
-
-      <h2 data-target="50">0</h2>
-
-      <p>Websites</p>
-
-    </div>
-
-    <div class="stat-box">
-
-      <h2 data-target="35">0</h2>
-
-      <p>Happy Clients</p>
-
-    </div>
-
-    <div class="stat-box">
-
-      <h2 data-target="15">0</h2>
-
-      <p>Premium Projects</p>
-
-    </div>
-
-    <div class="stat-box">
-
-      <h2 data-target="180">0</h2>
-
-      <p>Business Growth</p>
+      </div>
 
     </div>
 
@@ -396,9 +364,13 @@
 
   <section class="contact" id="contact">
 
-    <h2 class="section-title">
-      Book Your Premium Website
-    </h2>
+    <div class="section-heading">
+
+      <p>CONTACT</p>
+
+      <h2>Book Your Luxury Website</h2>
+
+    </div>
 
     <form id="whatsappForm">
 
@@ -411,24 +383,39 @@
       <textarea id="message" placeholder="Tell us about your project"></textarea>
 
       <button type="submit">
+
         Book On WhatsApp
+
       </button>
 
     </form>
 
   </section>
 
+  <!-- FOOTER -->
+
+  <footer>
+
+    <h2>NVservicehub</h2>
+
+    <p>
+      Luxury Websites For Serious Businesses
+    </p>
+
+  </footer>
+
   <!-- WHATSAPP -->
 
-  <a
-    href="https://wa.me/918796493504"
-    class="whatsapp-float"
-    target="_blank"
-  >
-    <i class="fa-brands fa-whatsapp"></i>
+  <a href="https://wa.me/918796493504" target="_blank" class="whatsapp">
+
+    <i class="ri-whatsapp-line"></i>
+
   </a>
 
-  <script src="js/script.js"></script>
+  <!-- JS -->
+
+  <script src="script.js"></script>
 
 </body>
+
 </html>
