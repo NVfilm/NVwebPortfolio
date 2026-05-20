@@ -1,113 +1,203 @@
+/* =========================
+FILE: script.js
+========================= */
+
+// LENIS SMOOTH SCROLL
+
+const lenis = new Lenis()
+
+function raf(time) {
+
+  lenis.raf(time)
+
+  requestAnimationFrame(raf)
+
+}
+
+requestAnimationFrame(raf)
+
 // LOADER
 
 window.addEventListener("load", () => {
 
-    const loader = document.querySelector(".loader");
+  gsap.to(".loader", {
 
-    setTimeout(() => {
-        loader.style.opacity = "0";
-        loader.style.visibility = "hidden";
-    }, 1800);
+    opacity:0,
 
-});
+    duration:1.2,
 
-// CURSOR GLOW
+    delay:1.4,
 
-const glow = document.querySelector(".cursor-glow");
+    pointerEvents:"none"
 
-window.addEventListener("mousemove", (e) => {
+  })
 
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
+})
 
-});
+// CURSOR
 
-// SCROLL REVEAL
+const cursor = document.querySelector(".cursor")
 
-ScrollReveal().reveal('.hero-content', {
-    delay: 300,
-    distance: '60px',
-    duration: 1800,
-    origin: 'bottom'
-});
+window.addEventListener("mousemove",(e)=>{
 
-ScrollReveal().reveal('.project-card', {
-    delay: 200,
-    distance: '40px',
-    duration: 1200,
-    interval: 150,
-    origin: 'bottom'
-});
+  gsap.to(cursor,{
 
-ScrollReveal().reveal('.why-card', {
-    delay: 200,
-    distance: '40px',
-    duration: 1200,
-    interval: 150,
-    origin: 'bottom'
-});
+    x:e.clientX,
 
-ScrollReveal().reveal('.about-left', {
-    origin: 'left',
-    duration: 1500,
-    distance: '60px'
-});
+    y:e.clientY,
 
-ScrollReveal().reveal('.about-right', {
-    origin: 'right',
-    duration: 1500,
-    distance: '60px'
-});
+    duration:0.2
 
-// COUNTER
+  })
 
-const counters = document.querySelectorAll(".stat-box h2");
+})
 
-counters.forEach(counter => {
+// HERO ANIMATION
 
-    counter.innerText = "0";
+gsap.from(".hero-tag",{
 
-    const updateCounter = () => {
+  y:80,
 
-        const target = +counter.getAttribute("data-target");
+  opacity:0,
 
-        const current = +counter.innerText;
+  duration:1.2,
 
-        const increment = target / 80;
+  delay:1.8
 
-        if(current < target){
+})
 
-            counter.innerText = `${Math.ceil(current + increment)}+`;
+gsap.from(".hero h1",{
 
-            setTimeout(updateCounter, 30);
+  y:120,
 
-        } else {
+  opacity:0,
 
-            counter.innerText = `${target}+`;
+  duration:1.5,
 
-        }
+  delay:2
 
-    };
+})
 
-    updateCounter();
+gsap.from(".hero-desc",{
 
-});
+  y:80,
 
-// WHATSAPP FORM
+  opacity:0,
+
+  duration:1.3,
+
+  delay:2.3
+
+})
+
+gsap.from(".hero-buttons",{
+
+  y:80,
+
+  opacity:0,
+
+  duration:1.3,
+
+  delay:2.5
+
+})
+
+// PORTFOLIO SCROLL ANIMATION
+
+gsap.utils.toArray(".project-card").forEach((card)=>{
+
+  gsap.from(card,{
+
+    scrollTrigger:{
+      trigger:card,
+      start:"top 85%"
+    },
+
+    y:120,
+
+    opacity:0,
+
+    duration:1.2
+
+  })
+
+})
+
+// WHY CARD ANIMATION
+
+gsap.utils.toArray(".why-card").forEach((card)=>{
+
+  gsap.from(card,{
+
+    scrollTrigger:{
+      trigger:card,
+      start:"top 85%"
+    },
+
+    y:80,
+
+    opacity:0,
+
+    duration:1
+
+  })
+
+})
+
+// ABOUT ANIMATION
+
+gsap.from(".about-left",{
+
+  scrollTrigger:{
+    trigger:".about",
+    start:"top 75%"
+  },
+
+  x:-120,
+
+  opacity:0,
+
+  duration:1.5
+
+})
+
+gsap.from(".about-right",{
+
+  scrollTrigger:{
+    trigger:".about",
+    start:"top 75%"
+  },
+
+  x:120,
+
+  opacity:0,
+
+  duration:1.5
+
+})
+
+// CONTACT FORM
 
 document
 .getElementById("whatsappForm")
-.addEventListener("submit", function(e){
+.addEventListener("submit",function(e){
 
-    e.preventDefault();
+  e.preventDefault()
 
-    let name = document.getElementById("name").value;
-    let business = document.getElementById("business").value;
-    let phone = document.getElementById("phone").value;
-    let message = document.getElementById("message").value;
+  let name =
+  document.getElementById("name").value
 
-    let text =
-`🔥 New Website Booking
+  let business =
+  document.getElementById("business").value
+
+  let phone =
+  document.getElementById("phone").value
+
+  let message =
+  document.getElementById("message").value
+
+  let text =
+`🔥 NEW WEBSITE BOOKING
 
 👤 Name: ${name}
 
@@ -116,11 +206,11 @@ document
 📞 Phone: ${phone}
 
 📝 Project Details:
-${message}`;
+${message}`
 
-    let whatsappURL =
-`https://wa.me/918796493504?text=${encodeURIComponent(text)}`;
+  let url =
+`https://wa.me/918796493504?text=${encodeURIComponent(text)}`
 
-    window.open(whatsappURL, "_blank");
+  window.open(url,"_blank")
 
-});
+})
