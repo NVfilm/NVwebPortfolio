@@ -1,111 +1,126 @@
-// COUNTER
+// LOADER
 
-const counters = document.querySelectorAll('.counter');
+window.addEventListener("load", () => {
 
-counters.forEach(counter => {
+    const loader = document.querySelector(".loader");
 
-counter.innerText = '0';
-
-const updateCounter = () => {
-
-const target = +counter.getAttribute('data-target');
-
-const c = +counter.innerText;
-
-const increment = target / 100;
-
-if(c < target){
-
-counter.innerText = `${Math.ceil(c + increment)}`;
-
-setTimeout(updateCounter,20);
-
-}
-else{
-
-counter.innerText = target;
-
-}
-
-};
-
-updateCounter();
+    setTimeout(() => {
+        loader.style.opacity = "0";
+        loader.style.visibility = "hidden";
+    }, 1800);
 
 });
-
-
-// WHATSAPP FORM
-
-const form = document.getElementById('form');
-
-form.addEventListener('submit', function(e){
-
-e.preventDefault();
-
-let name = document.getElementById('name').value;
-
-let business = document.getElementById('business').value;
-
-let phone = document.getElementById('phone').value;
-
-let message = document.getElementById('message').value;
-
-let whatsappMessage =
-`Hello NVservicehub!%0A%0A`
-+ `Name: ${name}%0A`
-+ `Business: ${business}%0A`
-+ `Phone: ${phone}%0A`
-+ `Message: ${message}`;
-
-window.open(
-`https://wa.me/918796493504?text=${whatsappMessage}`,
-'_blank'
-);
-
-});
-
 
 // CURSOR GLOW
 
-const cursor = document.querySelector('.cursor');
+const glow = document.querySelector(".cursor-glow");
 
-document.addEventListener('mousemove', e => {
+window.addEventListener("mousemove", (e) => {
 
-cursor.style.left = e.clientX + 'px';
-
-cursor.style.top = e.clientY + 'px';
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
 
 });
-
 
 // SCROLL REVEAL
 
-const cards = document.querySelectorAll('.card');
+ScrollReveal().reveal('.hero-content', {
+    delay: 300,
+    distance: '60px',
+    duration: 1800,
+    origin: 'bottom'
+});
 
-window.addEventListener('scroll', ()=>{
+ScrollReveal().reveal('.project-card', {
+    delay: 200,
+    distance: '40px',
+    duration: 1200,
+    interval: 150,
+    origin: 'bottom'
+});
 
-cards.forEach(card => {
+ScrollReveal().reveal('.why-card', {
+    delay: 200,
+    distance: '40px',
+    duration: 1200,
+    interval: 150,
+    origin: 'bottom'
+});
 
-const top = card.getBoundingClientRect().top;
+ScrollReveal().reveal('.about-left', {
+    origin: 'left',
+    duration: 1500,
+    distance: '60px'
+});
 
-if(top < window.innerHeight - 100){
+ScrollReveal().reveal('.about-right', {
+    origin: 'right',
+    duration: 1500,
+    distance: '60px'
+});
 
-card.style.opacity = '1';
+// COUNTER
 
-card.style.transform = 'translateY(0)';
+const counters = document.querySelectorAll(".stat-box h2");
 
-}
+counters.forEach(counter => {
+
+    counter.innerText = "0";
+
+    const updateCounter = () => {
+
+        const target = +counter.getAttribute("data-target");
+
+        const current = +counter.innerText;
+
+        const increment = target / 80;
+
+        if(current < target){
+
+            counter.innerText = `${Math.ceil(current + increment)}+`;
+
+            setTimeout(updateCounter, 30);
+
+        } else {
+
+            counter.innerText = `${target}+`;
+
+        }
+
+    };
+
+    updateCounter();
 
 });
 
-});
+// WHATSAPP FORM
 
-cards.forEach(card => {
+document
+.getElementById("whatsappForm")
+.addEventListener("submit", function(e){
 
-card.style.opacity = '0';
+    e.preventDefault();
 
-card.style.transform = 'translateY(80px)';
+    let name = document.getElementById("name").value;
+    let business = document.getElementById("business").value;
+    let phone = document.getElementById("phone").value;
+    let message = document.getElementById("message").value;
 
-card.style.transition = '1s';
+    let text =
+`🔥 New Website Booking
+
+👤 Name: ${name}
+
+🏢 Business: ${business}
+
+📞 Phone: ${phone}
+
+📝 Project Details:
+${message}`;
+
+    let whatsappURL =
+`https://wa.me/918796493504?text=${encodeURIComponent(text)}`;
+
+    window.open(whatsappURL, "_blank");
 
 });
